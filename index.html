@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Pizza Order</title>
+
+    <style media="screen">
+      input, select{
+        display:block;
+        margin:5px 15px;
+      }
+      .hidden{
+        display:none;
+      };
+    </style>
+  </head>
+  <body>
+    <h1>Delivery Options</h1>
+    <form action="">
+    <input id="name" type="text" name="name" placeholder="Name">
+    <select id="addressType" class="address-type" name="address type">
+      <option value="house">house</option>
+      <option value="apartment">apartment</option>
+      <option value="business">business</option>
+      <option value="campus">campus</option>
+      <option value="hotel">hotel</option>
+      <option value="dorm">dorm</option>
+      <option value="other">other</option>
+      <input id="otherInput" class="hidden" type="text" name="other" placeholder="other">
+    </select>
+    <input type="text" name="streetAdress" placeholder="Street Address">
+    <select class="room-type" name="room type">
+        <option value="apt">Apartment Number</option>
+        <option value="room">Room Number</option>
+        <option value="suite">Suite Number</option>
+    </select>
+    <input type="text" name="city" placeholder="City">
+    <input id="state" type="text" name="state" placeholder="Sate">
+    <input id="zip" type="text" name="zip" placeholder="Zip Code">
+    <input id="phone" type="text" name="phone" placeholder="Phone Number">
+    <input id="email" type="text" name="email" placeholder="Email">
+    </form>
+    <button id="submit" class="hidden" value="submit"> Submit</button>
+
+
+
+
+<script type="text/javascript" src="script.js"></script>
+
+  </body>
+</html>
