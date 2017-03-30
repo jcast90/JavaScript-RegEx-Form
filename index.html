@@ -11,12 +11,22 @@
       }
       .hidden{
         display:none;
-      };
+      }
+       .valid{
+              background-color: #ddffdd;
+        }
+        .invalid{
+            background-color: #ffdddd;
+             border: 5px solid border-color: #800000;;
+        }
+        input[type="radio"]{
+            display:inline;
+        }
     </style>
   </head>
   <body>
     <h1>Delivery Options</h1>
-    <form action="">
+    <form class="deliveryForm">
     <input id="name" type="text" name="name" placeholder="Name">
     <select id="addressType" class="address-type" name="address type">
       <option value="house">house</option>
@@ -29,10 +39,12 @@
       <input id="otherInput" class="hidden" type="text" name="other" placeholder="other">
     </select>
     <input type="text" name="streetAdress" placeholder="Street Address">
-    <select class="room-type" name="room type">
+    <select class="room-type" id="room-type" name="">
+       <option value="none">None</option>
         <option value="apt">Apartment Number</option>
         <option value="room">Room Number</option>
         <option value="suite">Suite Number</option>
+         <input id="number" class="hidden" type="text" name="number1" placeholder="text">
     </select>
     <input type="text" name="city" placeholder="City">
     <input id="state" type="text" name="state" placeholder="Sate">
@@ -40,8 +52,18 @@
     <input id="phone" type="text" name="phone" placeholder="Phone Number">
     <input id="email" type="text" name="email" placeholder="Email">
     </form>
-    <button id="submit" class="hidden" value="submit"> Submit</button>
-
+    <button id="submit" value="submit"> Submit</button>
+    
+    
+<form class="doughOptions" name="options" id="form">
+ 
+  <input type="radio" name="dough" value="ht"> Hand Tossed <br />
+  <input type="radio" name="dough" value="tc"> Thin Crust<br />
+  <input type="radio" name="dough" value="nyS"> New York Style<br />
+   <input type="radio" name="dough" value="gf"> Gluten Free
+    
+</form>
+<select id="options"></select>
 
 
 
