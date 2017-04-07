@@ -42,7 +42,7 @@ var Email = document.getElementById('email');
 Name.addEventListener('focusout', focus, false);
 
 function focus(){
-  if(Name.value.match(/^[a-zA-z ]*$/)){
+  if(Name.value.match(/^[a-zA-z ]*$/) && Name.value != 0){
     Name.classList.add('valid');
       return true;
 
@@ -72,7 +72,7 @@ function zipF(){
 Email.addEventListener('focusout', emailF, false);
 function emailF(){
   var emailTest = /^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4})*$/;
-  if(Email.value.match(emailTest)){
+  if(Email.value.match(emailTest) || Email.value != 0){
     Email.classList.add('valid');
       return true;
   }else{
@@ -87,7 +87,7 @@ State.addEventListener('focusout', stateF, false);
 
 function stateF(){
  var stateTest = /^(?:A[KLRZ]|C[AOT]|D[CE]|FL|GA|HI|I[ADLN]|K[SY]|LA|M[ADEINOST]|N[CDEHJMVY]|O[HKR]|PA|RI|S[CD]|T[NX]|UT|V[AT]|W[AIVY])*$/;
- if (State.value.match(stateTest)){
+ if (State.value.match(stateTest) && State.value != 0){
    State.classList.add('valid');
      return true;
  }else{
@@ -172,12 +172,13 @@ var pizza = {
     thincrust: ["Small ($9.99)", "Medium ($10.99)", "Large ($11.99)", "X-Large ($12.99)"],
     thickcrust: ["Small ($9.99)", "Medium ($10.99)", "Large ($11.99)"],
     newyork: ["Medium ($10.99)", "Large ($11.99)"],
-    glutenfree: ["Small ($11.99)"]
-    cheese: ['Light ($0]', 'Normal $0','Extra 2.99','Double 3.99']
+    glutenfree: ["Small ($11.99)"],
+    cheese: ['Light ($0]', 'Normal $0','Extra 2.99','Double 3.99'],
     sauce: [
         ['Regular Tomato', 0],
         ['Hearty Tomato', .99],
         ['BBQ', 1.99]
+      ]
 };
 
 /* ADD OPTIONS TO MENUS */
@@ -299,20 +300,19 @@ crust.addEventListener("change", function () {
 // })
 /*************** LUHN ALGORITHM **********************/
 
-var visa = {
-  prefix: [4],
-  numDigits: [13,16],
-  checkDigits: [10],
-};
-var masterCard = {
-  prefix: [51, 52, 53, 54, 55],
-  numDigits: [16],
-  checkDigits: [10]
-};
-var americanExpress = {
-  prefix: [37],
-  numDigits: [15],
-  checkDigits: [10]
-}
-
-var input = getElementById
+// var visa = {
+//   prefix: [4],
+//   numDigits: [13,16],
+//   checkDigits: [10],
+// };
+// var masterCard = {
+//   prefix: [51, 52, 53, 54, 55],
+//   numDigits: [16],
+//   checkDigits: [10]
+// };
+// var americanExpress = {
+//   prefix: [37],
+//   numDigits: [15],
+//   checkDigits: [10]
+// }
+//
