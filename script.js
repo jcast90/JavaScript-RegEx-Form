@@ -127,85 +127,192 @@ function inputsTrue(){
     form.classList.add('hidden');
 }
 };
-    
+
 //PART II
-
-//var pizza = {
-//  doughType: {
-//    ht: {
-//      size: ['small', 'medium', 'large'],
-//      price: [9.99, 12.99, 14.99]
-//    },
-//    tc: {
-//      size: ['medium', 'large'],
-//      price: [11.99, 13.99]
-//    },
-//    nyS: {
-//      size: ['large', 'extra-large'],
-//      price: [16.99, 19.99]
-//    },
-//    gf: {
-//      size: ['small'],
-//      price: [10.99]
-//    }
-//  },
-//  cheese: {
-//    amount: ['light', 'normal', 'extra', 'double'],
-//    price: [0, 0, 2.99, 3.99]
-//  },
-//  sauce: {
-//    amount: ['regular tomato', 'hearty tomato', 'bbq'],
-//    price: [0, .99, 1.99]
-//  },
-//  toppings: {
-//    ingredients: ['pepperoni', 'sausage', 'ham', 'bacon', 'salami', 'peppers', 'olives', 'jalapenos', 'mushrooms', 'pineapple', 'onion'],
-//    price: [.99, .99, .99, .99, .99, .99, .99, .99, .99, .99, .99]
-//  }
-//}
-
-
-
-
 var pizza = {
-   thincrust: [("Small", "$1.99"), ("Medium",  "$2.99"), ("Large" , "$3.99")],
-    thickcrust: ["Small ($1.99)", "Medium ($2.99)", "Large ($3.99)"],
-    newyork: ["Small ($1.99)", "Medium ($2.99)", "Large ($3.99)"],
-    glutenfree: ["Small ($1.99)", "Medium ($2.99)", "Large ($3.99)"]
-};
+
+    cheese: [
+        ['Light', 0],
+        ['Normal', 0],
+        ['Extra', 2.99],
+        ['Double', 3.99]
+    ],
+    sauce: [
+        ['Regular Tomato', 0],
+        ['Hearty Tomato', .99],
+        ['BBQ', 1.99]
+    ],
+    toppings: [
+        ['Pepperoni', .99],
+        ['Sausage', .99],
+        ['Ham', .99],
+        ['Bacon', .99],
+        ['Salami', .99],
+        ['Peppers', .99],
+        ['Olives', .99],
+        ['Jalapenos', .99],
+        ['Mushrooms', .99],
+        ['Pineapple', .99],
+        ['Onion', .99]
+    ],
 
 
-var select = document.getElementById("options");
+}
 
+
+var doughPrice = document.getElementById("dough-price");
+var cheesePrice = document.getElementById("cheese-price");
+var saucePrice = document.getElementById("sauce-price");
+var toppings = document.getElementById("toppings");
 // pulls the value of radio buttons
 var dough = document.querySelector('.doughOptions');
 
-var selectDoughType = dough.addEventListener('click', function(){ 
-                            for (var i = 0; i < dough.elements.length; i++){
-                                if(dough.elements[i].type == 'radio'){
-                                    if(dough.elements[i].checked == true){
-                                        var doughResults = dough.elements[i].value;
-                                        console.log(doughResults);
-                                        
-                                   }
-                                }
-                            }
-                        }, false);
-                      
+var pizza = {
+    crusts: ["Thin Crust", "Thick Crust", "New York Style", "Gluten Free"],
+    thincrust: ["Small ($9.99)", "Medium ($10.99)", "Large ($11.99)", "X-Large ($12.99)"],
+    thickcrust: ["Small ($9.99)", "Medium ($10.99)", "Large ($11.99)"],
+    newyork: ["Medium ($10.99)", "Large ($11.99)"],
+    glutenfree: ["Small ($11.99)"]
+    cheese: ['Light ($0]', 'Normal $0','Extra 2.99','Double 3.99']
+    sauce: [
+        ['Regular Tomato', 0],
+        ['Hearty Tomato', .99],
+        ['BBQ', 1.99]
+};
 
+/* ADD OPTIONS TO MENUS */
+var crust = document.getElementById("crust");
+pizza.crusts.forEach(function (element) {
+    "use strict";
+    var opt = document.createElement("option");
+    opt.innerHTML = element;
+    crust.appendChild(opt);
+});
+var thin = document.getElementById("thin");
+pizza.thincrust.forEach(function (element) {
+    "use strict";
+    var opt = document.createElement("option");
+    opt.innerHTML = element;
+    thin.appendChild(opt);
+});
+var thick = document.getElementById("thick");
+pizza.thickcrust.forEach(function (element) {
+    "use strict";
+    var opt = document.createElement("option");
+    opt.innerHTML = element;
+    thick.appendChild(opt);
+});
+var nys = document.getElementById("nys");
+pizza.newyork.forEach(function (element) {
+    "use strict";
+    var opt = document.createElement("option");
+    opt.innerHTML = element;
+    nys.appendChild(opt);
+});
+var gluten = document.getElementById("gluten");
+pizza.glutenfree.forEach(function (element) {
+    "use strict";
+    var opt = document.createElement("option");
+    opt.innerHTML = element;
+    gluten.appendChild(opt);
+});
+
+/* PRE HIDE MENUS */
+thin.style.display = "none";
+thick.style.display = "none";
+nys.style.display = "none";
+gluten.style.display = "none";
+
+/* SHOW MENU BASED ON CRUST SELECTED */
+var select = document.getElementById("options");
+crust.addEventListener("change", function () {
+    "use strict";
+    switch (crust.options[crust.selectedIndex].value) {
+        case "Thin Crust":
+            thin.style.display = "block";
+            thick.style.display = "none";
+            nys.style.display = "none";
+            gluten.style.display = "none";
+            break;
+        case "Thick Crust":
+            thin.style.display = "none";
+            thick.style.display = "block";
+            nys.style.display = "none";
+            gluten.style.display = "none";
+            break;
+        case "New York Style":
+            thin.style.display = "none";
+            thick.style.display = "none";
+            nys.style.display = "block";
+            gluten.style.display = "none";
+            break;
+        case "Gluten Free":
+            thin.style.display = "none";
+            thick.style.display = "none";
+            nys.style.display = "none";
+            gluten.style.display = "block";
+            break;
+    }
+});
 
 //binds value to select option
 
-                 funciton
-                      pizza.forEach(function (element, i, pizza) {
-                          
-                                "use strict";
-                                var opt = document.createElement("option");
-                                opt.innerHTML = element;
-                                select.appendChild(opt);
-                         });
-                
+
+//  pizza.cheese.forEach(function (element, i) {
+//
+//            "use strict";
+//            var opt = document.createElement("option");
+//            opt.innerHTML = element;
+//            cheesePrice.appendChild(opt);
+//     });
+
+//
+// pizza.sauce.forEach(function (element, i) {
+//
+//           "use strict";
+//           var opt = document.createElement("option");
+//           opt.innerHTML = element;
+//           saucePrice.appendChild(opt);
+//    });
+//
+//    pizza.toppings.forEach(function(element, i){
+//      "use strict";
+//     var _toppings = pizza.toppings;
+//     var opt = document.createElement("input");
+//     var label = document.createElement("label");
+//
+//      opt.type = 'checkbox';
+//      opt.value = _toppings[i];
+//
+//      opt.innerHTML = element;
+//      toppings.appendChild(opt);
+//      toppings.appendChild(label);
+//      label.appendChild(document.createTextNode(_toppings[i]));
+//
+//    })
+
 //stores value when changed
-select.addEventListener("change", function () {
-    "use strict";
-    window.console.log(select.options[select.selectedIndex].value);
-})
+// var optionSelect = document.getElementsByName('optionSelect');
+// optionSelect.addEventListener("change", function () {
+//     "use strict";
+//     window.console.log(optionSelect.options[optionSelect.selectedIndex].value);
+// })
+/*************** LUHN ALGORITHM **********************/
+
+var visa = {
+  prefix: [4],
+  numDigits: [13,16],
+  checkDigits: [10],
+};
+var masterCard = {
+  prefix: [51, 52, 53, 54, 55],
+  numDigits: [16],
+  checkDigits: [10]
+};
+var americanExpress = {
+  prefix: [37],
+  numDigits: [15],
+  checkDigits: [10]
+}
+
+var input = getElementById
